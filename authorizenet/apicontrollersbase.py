@@ -146,7 +146,7 @@ class APIOperationBase(APIOperationBaseInterface):
                     if self._response.messages.resultCode == "Error":
                         print "Response error"
             
-                    domResponse = xml.dom.minidom.parseString(self._httpResponse)
+                    domResponse = xml.dom.minidom.parseString(self._httpResponse.encode('utf-8')
                     logging.debug('Received response: %s' % domResponse.toprettyxml())
                 else:
                     #Need to handle ErrorResponse 
